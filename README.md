@@ -1,2 +1,2 @@
 # python
-tasks
+Repository for my university.
