@@ -21,8 +21,6 @@ data.sort(reverse=True,key=len)
 #we need to keep the 5 biggest words
 data = data[0:5]
 
-#remove vowels(a,e,i,o,u)
-
 data =[removeVowels(word) for word in data]
 
 for word in data:
