@@ -1,0 +1,30 @@
+import instaloader
+from collections import Counter
+from itertools import islice
+
+L = instaloader.Instaloader()
+g = input("Enter the user profile you want to search : ") 
+profile = instaloader.Profile.from_username(L.context, g)
+has_more_comments = True
+# print(profile.get_posts())
+
+commenters = dict()
+
+for post in profile.get_posts():
+    post_comments = post.get_comments()
+    # print(post_comments)
+    for comment in post_comments:
+        username = comment.owner.username
+        numberOfComments = commenters.get(username,0)
+        commenters[username] = numberOfComments + 1
+        # print(comment.owner.username)
+
+topCommenter = ''
+mostComments = 0 
+
+for username,numberOfComments in commenters.items():
+    if numberOfComments > mostComments:
+        topCommenter = username
+        mostComments = numberOfComments
+    
+print(topCommenter,mostComments)
