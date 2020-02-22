@@ -1,0 +1,9 @@
+import numpy as np
+
+with open("table.txt", "r") as f:    
+        lines=[line.split() for line in f]
+
+f.close()
+print(lines)
+new_list = [[int(x) for x in item] for item in lines]
+print(np.linalg.det(new_list))
